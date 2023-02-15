@@ -10,7 +10,7 @@
 plan oratune::status(
   TargetSpec $targets,
 ) {
-  $message = "my message" #File::read(‘/etc/hostname’)
-  #$outside_apply = lookup('oramessage')
+  #$message = "my message" #File::read(‘/etc/hostname’)
+  $message = File::read('/etc/hostname')
   run_task('oratune::dynamicmessage', $targets, 'example_nul' => $message)
 }
