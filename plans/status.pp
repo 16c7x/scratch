@@ -9,12 +9,8 @@
 #   peadm::status($targets, 'table', true, true)
 plan oratune::status(
   TargetSpec $targets,
-  Enum[json,table] $format = 'table',
-  Boolean $verbose = false,
-  Boolean $summarize = true,
-  Boolean $colors = $format ? { 'json' => false, default => true }
 ) {
-  $outside_apply = File::read(‘/etc/hostname’)
+  #$outside_apply = File::read(‘/etc/hostname’)
   #$outside_apply = lookup('oramessage')
-  run_task('oratune::dynamicmessage', $targets, 'example_nul' => $outside_apply)
+  #run_task('oratune::dynamicmessage', $targets, 'example_nul' => $outside_apply)
 }
