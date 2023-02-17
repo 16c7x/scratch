@@ -7,10 +7,8 @@
 # @param colors Toggles the usage of colors, you may want to disable if the format is json
 # @example
 #   peadm::status($targets, 'table', true, true)
-plan oratune::status(
-  TargetSpec $targets,
-) {
-  #$message = "my message" #File::read(‘/etc/hostname’)
-  $message = system::env('$HOSTNAME')
-  run_task('oratune::dynamicmessage', $targets, 'example_nul' => $message)
+plan oratune::status
+ {
+  $hostname = system::env('HOSTNAME')
+  warning("Info: Using HOSTNAME: ${hostname}")
 }
