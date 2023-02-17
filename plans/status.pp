@@ -10,5 +10,5 @@
 plan oratune::status
  {
   $hostname = system::env('HOSTNAME')
-  warning("Info: Using HOSTNAME: ${hostname}")
+  error("Info: Using HOSTNAME: ${hostname}")
 }
