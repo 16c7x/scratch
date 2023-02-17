@@ -11,6 +11,6 @@ plan oratune::status(
   TargetSpec $targets,
 ) {
   #$message = "my message" #File::read(‘/etc/hostname’)
-  $message = system::env('HOSTNAME')
+  $message = system::env('$HOSTNAME')
   run_task('oratune::dynamicmessage', $targets, 'example_nul' => $message)
 }
