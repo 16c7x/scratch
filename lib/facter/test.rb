@@ -1,7 +1,7 @@
 require 'json'
 ext_facts_file='/etc/facter/facts.d/test.json'
 
-facter.add(:test) do
+Facter.add(:test) do
     setcode do
         test={}
         test['csp_region']='region1'
