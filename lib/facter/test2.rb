@@ -1,5 +1,5 @@
 require 'json'
-ext_facts_file='/etc/facter/facts.d/test2.json'
+ext_facts_file='/etc/facter/facts.d/test.json'
 
 Facter.add(:test2) do
     setcode do
