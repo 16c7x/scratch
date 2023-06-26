@@ -6,27 +6,6 @@
     "dbname": {
       "type": "String",
       "description": "Name of the database"
-    },
-    "pagesize": {
-      "type": "Enum[4, 8, 16, 32]",
-      "description": "Page size of the database"
-    },
-    "codeset": {
-      "type": "Enum[1252, 1208, UTF-8, ISO8859-1, ISO8859-2, ISO8859-5, ISO8859-6, ISO8859-7, ISO8859-8, ISO8859-9]",
-      "description": "Supported character set for the database data (related to territory with certain inter-dependencies). Choose UTF-8 for Unicode databases",
-      "default": "UTF-8"
-    },
-    "collation": {
-      "type": "Enum[SYSTEM, COMPATIBILITY, IDENTITY, UCA400_NO]",
-      "description": "Collation (sorting) sequence for database data"
-    },
-    "territory": {
-      "type": "Enum[BR, CH, CN, DE, FR, HK, IT, JP, UK, US",
-      "description": "Country specifics for the database data representation (e.g. time and date value formatting, etc.). BR (Brasil), CH (Switzerland), CN (China), DE (Germany), FR (France), HK (Hongkong), IT (Italy), JP (Japan), UK (United Kingdom), US (United States)"
-    },
-    "comment": {
-      "type": "String",
-      "description": "Some comment on the database, typically the Application ID or some application name reference"
     }
   }
 }
