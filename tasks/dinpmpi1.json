@@ -4,7 +4,7 @@
   "description": "A short description of this task",
   "parameters": {
     "dbname": {
-      "type": "String[8]",
+      "type": "String",
       "description": "Name of the database"
     },
     "pagesize": {
@@ -25,7 +25,7 @@
       "description": "Country specifics for the database data representation (e.g. time and date value formatting, etc.). BR (Brasil), CH (Switzerland), CN (China), DE (Germany), FR (France), HK (Hongkong), IT (Italy), JP (Japan), UK (United Kingdom), US (United States)"
     },
     "comment": {
-      "type": "String[80]",
+      "type": "String",
       "description": "Some comment on the database, typically the Application ID or some application name reference"
     }
   }
