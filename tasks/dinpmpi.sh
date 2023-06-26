@@ -1,28 +1,30 @@
-#!/bin/sh
+#!/opt/puppetlabs/puppet/bin/ruby
+# frozen_string_literal: true
 
-# Puppet Task Name: dinpmpi1
-#
-# This is where you put the shell code for your task.
-#
-# You can write Puppet tasks in any language you want and it's easy to
-# adapt an existing Python, PowerShell, Ruby, etc. script. Learn more at:
-# https://puppet.com/docs/bolt/0.x/writing_tasks.html
-#
-# Puppet tasks make it easy for you to enable others to use your script. Tasks
-# describe what it does, explains parameters and which are required or optional,
-# as well as validates parameter type. For examples, if parameter "instances"
-# must be an integer and the optional "datacenter" parameter must be one of
-# portland, sydney, belfast or singapore then the .json file
-# would include:
-#   "parameters": {
-#     "instances": {
-#       "description": "Number of instances to create",
-#       "type": "Integer"
-#     },
-#     "datacenter": {
-#       "description": "Datacenter where instances will be created",
-#       "type": "Enum[portland, sydney, belfast, singapore]"
-#     }
-#   }
-# Learn more at: https://puppet.com/docs/bolt/0.x/writing_tasks.html#ariaid-title11
-#
+require 'json'
+require 'open3'
+require 'puppet'
+
+def node_ls(filter, quiet)
+  cmd_string = 'docker node ls'
+  cmd_string += " --filter=#{filter}" unless filter.nil?
+  cmd_string += ' --quiet' unless quiet.nil?
+
+  stdout, stderr, status = Open3.capture3(cmd_string)
+  raise Puppet::Error, "stderr: '#{stderr}'" if status != 0
+
+  stdout.strip
+end
+
+params = JSON.parse($stdin.read)
+filter = params['filter']
+quiet = params['quiet']
+
+begin
+  result = node_ls(filter, quiet)
+  puts result
+  exit 0
+rescue Puppet::Error => e
+  puts(status: 'failure', error: e.message)
+  exit 1
+end
