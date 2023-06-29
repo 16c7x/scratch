@@ -10,7 +10,7 @@ class scratch::timestamps {
   #$current_time  = '2023-06-28'
   #$last_run_time = '2023-06-20 11:29:46'
 
-  $new_current_time  = generate('/bin/date', '+%Y-%m-%d %H:%M:%S').gsub("\n",'')
+  $new_current_time  = generate('/bin/date', '+%Y-%m-%d %H:%M:%S').chomp
 
   $current_t = Integer(Timestamp($new_current_time).strftime('%s'))
 
