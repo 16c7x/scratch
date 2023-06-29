@@ -8,6 +8,6 @@ class scratch::timestamps {
   $new_current_time  = generate('/bin/date', '+%Y-%m-%d %H:%M:%S')
 
   notify { 'timestamp message':
-    message => 'Hi',
+    message => $new_current_time,
   }
 }
