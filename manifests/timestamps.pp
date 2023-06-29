@@ -7,7 +7,7 @@
 class scratch::timestamps {
   # Inputs
   $days          = 7
-  $last_run_time = '2023-06-20 11:29:46'
+  $last_run_time = '2023-06-27 11:29:46'
   $current_time  = generate('/bin/date', '+%Y-%m-%d %H:%M:%S').chomp
 
   # Convert the time stamps into seconds since Epoch.
