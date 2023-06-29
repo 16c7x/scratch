@@ -6,5 +6,5 @@
 #   include oratune::timestamps
 class scratch::timestamps {
   $new_current_time  = generate('/bin/date', '+%Y-%m-%d %H:%M:%S')
-  notice($new_current_time)
+  notice('hi')
 }
