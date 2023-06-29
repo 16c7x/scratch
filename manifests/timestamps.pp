@@ -15,7 +15,7 @@ class scratch::timestamps {
   $current_t = Integer(Timestamp($new_current_time).strftime('%s'))
 
   notify { 'timestamp message':
-    message => $current_time,
+    message => $current_t,
   }
 
   # Convert the time stamps into seconds since Epoch.
